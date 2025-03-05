@@ -159,6 +159,11 @@ our $game = 'sw2';
   our $adventurer_onlyonce = 0;
   our $making_interval = 0;
   
+## ●技能テーブル (Lv18～)
+  our %extendExpTable = (
+    'A' => [],
+    'B' => []
+  );
 
 ## ●アビスカース表
 our %curseList = (

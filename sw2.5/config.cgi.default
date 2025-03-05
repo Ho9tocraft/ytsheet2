@@ -59,6 +59,14 @@ package set;
   our $mystic_arts_on = 1;
  # レベル16以上を常設解禁
   our $force_unlockAbove16 = 0;
+ # 習得レベル
+  our @feats_lv = (1,3,5,7,9,11,13,15,16,17,18,19,20);
+
+## ●技能テーブル (Lv18～)
+  our %extendExpTable = (
+    'A' => [],
+    'B' => []
+  );
 
 
 ## ●ログイン関係ファイル

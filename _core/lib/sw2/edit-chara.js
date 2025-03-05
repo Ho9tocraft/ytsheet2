@@ -21,7 +21,10 @@ const expTable = {
      66500,
      80000,
      95000,
-    125000
+    125000,
+    170000,
+    230000,
+    300000
   ],
   'B' : [
          0,
@@ -41,7 +44,10 @@ const expTable = {
      55000,
      67000,
      80500,
-    105500
+    105500,
+    143000,
+    193000,
+    255500
   ],
   'S' : [
          0,
@@ -132,7 +138,7 @@ function checkLvCap() {
 
   document.querySelectorAll('#classes input[type="number"][name^="lv"][max]').forEach(
       input => {
-        input.setAttribute('max', unlockedAbove16 ? '17' : '15');
+        input.setAttribute('max', unlockedAbove16 ? '20' : '15');
 
         if (!unlockedAbove16 && input.value.match(/^1[67]$/)) {
           input.value = '15';
@@ -1032,7 +1038,12 @@ function checkFeats(){
     }
     else {
       cL.add("fail");
-      if(form.failView.checked){ cL.remove("hidden") } else { cL.add("hidden") };
+      if(form.failView.checked && featLv <= 20){
+        cL.remove("hidden")
+      }
+      else {
+        cL.add("hidden")
+      }
     }
   }
   
@@ -1055,7 +1066,7 @@ function checkCraft() {
     if (SET.class[key].craft?.data){
       const eName = SET.class[key].craft.eName;
       document.getElementById("craft-"+eName).style.display = cLv ? "block" : "none";
-      const cMax = (cId.match(/Bar|War/)) ? 20 : (cId === 'Art') ? 19 : 17;
+      const cMax = (cId.match(/Bar|War/)) ? 23 : (cId === 'Art') ? 22 : 20;
       const rows = cLv + (
             (cId === 'Bar') ? (feats['呪歌追加'] || 0)
           : (cId === 'War') ? (feats['鼓咆陣率追加'] || 0)
